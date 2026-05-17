@@ -34,24 +34,24 @@
 
 | 函数 | 作用 | 示例 |
 |------|------|------|
-| `pow(a, b)` | a 的 b 次方（返回 double） | `pow(2, 3)` → 8.0；整数幂用 `(int)pow(2, 3)` → 8 |
-| `sqrt(x)` | 开平方 | `sqrt(16)` → 4.0 |
-| `cbrt(x)` | 开立方 | `cbrt(8)` → 2.0 |
-| `abs(x)` | 整数绝对值（见注） | `abs(-5)` → 5 |
-| `fabs(x)` | 浮点绝对值 | `fabs(-3.14)` → 3.14 |
-| `ceil(x)` | 向上取整 | `ceil(3.1)` → 4.0 |
-| `floor(x)` | 向下取整 | `floor(3.9)` → 3.0 |
-| `round(x)` | 四舍五入 | `round(3.5)` → 4.0 |
-| `fmax(a, b)` | 浮点最大值 | `fmax(2.5, 3.7)` → 3.7 |
-| `fmin(a, b)` | 浮点最小值 | `fmin(2.5, 3.7)` → 2.5 |
-| `log(x)` | 自然对数 ln(x) | `log(2.71828)` → 1.0 |
-| `log10(x)` | 以 10 为底的对数 | `log10(100)` → 2.0 |
-| `exp(x)` | e 的 x 次方 | `exp(1)` → 2.71828 |
-| `sin/cos/tan(x)` | 三角函数（弧度） | `sin(3.14159/2)` → 1.0 |
-| `asin/acos/atan(x)` | 反三角函数 | `atan(1)*4` → π |
-| `atan2(y, x)` | 给 (y,x) 算角度 | `atan2(1,1)` → π/4 |
-| `hypot(x, y)` | sqrt(x² + y²) | 求直角三角形斜边 |
-| `fmod(a, b)` | 浮点取余 | `fmod(5.5, 2)` → 1.5 |
+| `pow(a, b)` | a 的 b 次方（返回 double） | `pow(2, 3)` -> 8.0；整数幂用 `(int)pow(2, 3)` -> 8 |
+| `sqrt(x)` | 开平方 | `sqrt(16)` -> 4.0 |
+| `cbrt(x)` | 开立方 | `cbrt(8)` -> 2.0 |
+| `abs(x)` | 整数绝对值（见注） | `abs(-5)` -> 5 |
+| `fabs(x)` | 浮点绝对值 | `fabs(-3.14)` -> 3.14 |
+| `ceil(x)` | 向上取整 | `ceil(3.1)` -> 4.0 |
+| `floor(x)` | 向下取整 | `floor(3.9)` -> 3.0 |
+| `round(x)` | 四舍五入 | `round(3.5)` -> 4.0 |
+| `fmax(a, b)` | 浮点最大值 | `fmax(2.5, 3.7)` -> 3.7 |
+| `fmin(a, b)` | 浮点最小值 | `fmin(2.5, 3.7)` -> 2.5 |
+| `log(x)` | 自然对数 ln(x) | `log(2.71828)` -> 1.0 |
+| `log10(x)` | 以 10 为底的对数 | `log10(100)` -> 2.0 |
+| `exp(x)` | e 的 x 次方 | `exp(1)` -> 2.71828 |
+| `sin/cos/tan(x)` | 三角函数（弧度） | `sin(3.14159/2)` -> 1.0 |
+| `asin/acos/atan(x)` | 反三角函数 | `atan(1)*4` -> pi |
+| `atan2(y, x)` | 给 (y,x) 算角度 | `atan2(1,1)` -> pi/4 |
+| `hypot(x, y)` | sqrt(x^2 + y^2) | 求直角三角形斜边 |
+| `fmod(a, b)` | 浮点取余 | `fmod(5.5, 2)` -> 1.5 |
 
 > **关于 `abs`**：整数 `abs` 严格定义在 `<cstdlib>`，浮点 `abs` / `fabs` 在 `<cmath>`。但在现代 C++（C++11 起）`<cmath>` 通常也提供整数重载，所以只引 `<cmath>` 一般够用。
 
@@ -62,7 +62,7 @@ double dist = hypot(x1 - x2, y1 - y2);
 // 示例：判断素数（i*i <= n 避免浮点精度问题）
 bool isPrime(int n) {
     if (n < 2) return false;
-    for (int i = 2; i * i <= n; ++i)  // 只需检查到 √n
+    for (int i = 2; i * i <= n; ++i)  // 只需检查到 sqrt(n)
         if (n % i == 0) return false;
     return true;
 }
@@ -83,12 +83,12 @@ bool isPrime(int n) {
 
 | 控制符 | 作用 | 示例 |
 |--------|------|------|
-| `fixed` | 以小数形式输出浮点 | `cout << fixed << 3.0;` → `3.000000` |
-| `setprecision(n)` | 设置小数位数（与 fixed 联用） | `cout << fixed << setprecision(2) << 3.14159;` → `3.14` |
-| `setw(n)` | 设置输出宽度（右对齐） | `cout << setw(5) << 42;` → `   42` |
-| `setfill(c)` | 填充字符（配合 setw） | `cout << setfill('0') << setw(3) << 7;` → `007` |
-| `left` / `right` | 左对齐 / 右对齐 | `cout << left << setw(5) << 42;` → `42   ` |
-| `scientific` | 科学计数法 | `cout << scientific << 1234.5;` → `1.234500e+03` |
+| `fixed` | 以小数形式输出浮点 | `cout << fixed << 3.0;` -> `3.000000` |
+| `setprecision(n)` | 设置小数位数（与 fixed 联用） | `cout << fixed << setprecision(2) << 3.14159;` -> `3.14` |
+| `setw(n)` | 设置输出宽度（右对齐） | `cout << setw(5) << 42;` -> `   42` |
+| `setfill(c)` | 填充字符（配合 setw） | `cout << setfill('0') << setw(3) << 7;` -> `007` |
+| `left` / `right` | 左对齐 / 右对齐 | `cout << left << setw(5) << 42;` -> `42   ` |
+| `scientific` | 科学计数法 | `cout << scientific << 1234.5;` -> `1.234500e+03` |
 
 ```cpp
 // 示例：保留 3 位小数
@@ -127,7 +127,7 @@ cout << setfill(' ') << left << setw(10) << "Alice" << setw(5) << 95 << endl;
 | `find(begin, end, val)` | 查找值，返回迭代器 |
 | `count(begin, end, val)` | 统计 val 出现次数 |
 | `binary_search(begin, end, val)` | 二分查找（需有序）返回 bool |
-| `lower_bound(begin, end, val)` | 第一个 ≥val 的位置 |
+| `lower_bound(begin, end, val)` | 第一个 >=val 的位置 |
 | `upper_bound(begin, end, val)` | 第一个 >val 的位置 |
 | `unique(begin, end)` | 去重（需先排序），返回新末尾 |
 | `next_permutation(begin, end)` | 下一个排列 |
@@ -157,7 +157,7 @@ v.erase(unique(v.begin(), v.end()), v.end());
 // 示例：二分查找
 if (binary_search(v.begin(), v.end(), 42))
     cout << "找到了";
-auto it = lower_bound(v.begin(), v.end(), 42);  // 第一个 ≥42 的位置
+auto it = lower_bound(v.begin(), v.end(), 42);  // 第一个 >=42 的位置
 int idx = it - v.begin();  // 转成下标
 ```
 
@@ -175,8 +175,8 @@ int idx = it - v.begin();  // 转成下标
 
 | 操作 | 作用 | 示例 |
 |------|------|------|
-| `s.length()` / `s.size()` | 字符串长度 | `"abc".length()` → 3 |
-| `s.empty()` | 是否为空 | `"".empty()` → true |
+| `s.length()` / `s.size()` | 字符串长度 | `"abc".length()` -> 3 |
+| `s.empty()` | 是否为空 | `"".empty()` -> true |
 | `s[i]` | 取第 i 个字符 | |
 | `s.substr(pos, len)` | 截取子串 | `s.substr(2, 3)` |
 | `s.find(t)` | 查找子串，返回位置（无则 `string::npos`） | |
@@ -188,10 +188,10 @@ int idx = it - v.begin();  // 转成下标
 | `s.pop_back()` | 删除末尾字符 | |
 | `s += t` / `s.append(t)` | 拼接 | |
 | `s.compare(t)` | 比较（按字典序） | `s < t` 也可直接比较 |
-| `stoi(s)` | string → int | `stoi("123")` → 123 |
-| `stoll(s)` | string → long long | |
-| `stod(s)` | string → double | |
-| `to_string(x)` | 数字 → string | `to_string(42)` → `"42"` |
+| `stoi(s)` | string -> int | `stoi("123")` -> 123 |
+| `stoll(s)` | string -> long long | |
+| `stod(s)` | string -> double | |
+| `to_string(x)` | 数字 -> string | `to_string(42)` -> `"42"` |
 | `getline(cin, s)` | 读一行（含空格） | |
 
 ```cpp
@@ -505,9 +505,9 @@ cout << bitset<8>(n);  // 输出: 00101010
 
 | 常量 | 含义 |
 |------|------|
-| `INT_MAX` | int 最大值（约 2.1×10⁹） |
+| `INT_MAX` | int 最大值（约 2.1x10^9） |
 | `INT_MIN` | int 最小值 |
-| `LLONG_MAX` | long long 最大值（约 9.2×10¹⁸） |
+| `LLONG_MAX` | long long 最大值（约 9.2x10^18） |
 | `LLONG_MIN` | long long 最小值 |
 | `UINT_MAX` | unsigned int 最大值 |
 
@@ -529,7 +529,7 @@ for (int x : arr) if (x > maxVal) maxVal = x;
 
 ---
 
-## 快速参考：常见需求 → 对应函数
+## 快速参考：常见需求 -> 对应函数
 
 | 你想做什么 | 用什么 |
 |------------|--------|

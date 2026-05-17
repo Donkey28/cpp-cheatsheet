@@ -38,7 +38,7 @@
 | `<cctype>` | 字符判断与大小写转换 |
 | `<bitset>` | 位运算与进制转换 |
 
-👉 **[查看完整手册 →](CppCommonFunctions.md)**
+👉 **[查看完整手册 ->](CppCommonFunctions.md)**
 
 ## 快速预览
 
@@ -65,7 +65,7 @@ string line; getline(cin, line);
 
 ## 使用方法
 
-1. 浏览器里直接看 → [CppCommonFunctions.md](CppCommonFunctions.md)
+1. 浏览器里直接看 -> [CppCommonFunctions.md](CppCommonFunctions.md)
 2. 本地克隆：`git clone https://github.com/Donkey28/cpp-cheatsheet.git`
 3. 刷题时开着，`Ctrl+F` 搜关键字
 
