@@ -1,0 +1,18 @@
+# Compiled executables
+*.exe
+*.out
+*.o
+*.obj
+*.a
+*.so
+*.dll
+
+# Debug / IDE
+.vs/
+.vscode/
+*.user
+*.suo
+*.sdf
+
+# macOS
+.DS_Store
